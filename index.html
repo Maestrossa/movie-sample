@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TMDB Top Rated Movies</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>TMDB Top Rated Movies Collection</h1>
+    </header>
+    <form class="search" onsubmit="handleSarch(event)">
+      <label>Search : </label>
+      <input type="text" id="search-input" placeholder="Search the title" />
+      <button type="submit" id="search-btn">Search</button>
+    </form>
+    <section class="movieCards"></section>
+    <script src="./movie.js" defer></script>
+  </body>
+</html>
