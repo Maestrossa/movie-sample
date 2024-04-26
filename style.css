@@ -24,23 +24,9 @@ header {
   padding: 0;
 }
 
-.movieCards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-}
-
-.card {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
-  margin: 20px;
-  padding: 20px;
-  width: 300px;
-  justify-self: center;
-  background-color: bisque;
-  border-radius: 10px;
-  cursor: pointer;
-  user-select: none;
-  text-align: center;
+.movieCardsFlex {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 card img {
@@ -73,4 +59,27 @@ p {
 
 #cardtitle {
   font-weight: bold;
+}
+
+.movie-card {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.24);
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+  justify-self: center;
+  background-color: bisque;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+}
+
+.overview::-webkit-scrollbar {
+  background-color: rgb(255, 255, 255, 0.3);
+  width: 5px;
+}
+
+.overview::-webkit-scrollbar-thumb {
+  background-color: rgb(243, 195, 185, 1);
+  border-radius: 5px;
 }

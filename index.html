@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TMDB Top Rated Movies</title>
     <link rel="stylesheet" href="./style.css" />
+    <script src="./movie.js" defer></script>
   </head>
 
   <body>
     <header>
-      <h1>TMDB Top Rated Movies Collection</h1>
+      <h1>TMDB Top Rated Movies</h1>
     </header>
-    <form class="search" onsubmit="handleSarch(event)">
+    <form class="search" onsubmit="handleSearch(event)">
       <label>Search : </label>
-      <input type="text" id="search-input" placeholder="Search the title" />
+      <input type="text" id="search-input" placeholder="title or keywords" />
       <button type="submit" id="search-btn">Search</button>
     </form>
-    <section class="movieCards"></section>
-    <script src="./movie.js" defer></script>
+    <section class="movieCardsFlex"></section>
   </body>
 </html>
