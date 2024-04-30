@@ -14,34 +14,30 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
     //assign the result data to 'movies'
     let movies = response.results;
 
-    //with the results assigned to 'movies', makde a function that each movie's data to be placed
-    movies.forEach((data) => {
-      createMovieCard(data);
+    //assign 'movieCardsFlex' class to 'movieCardSection' const
+    const movieCardSection = document.querySelector('.movieCardsFlex');
+
+    //use the 'createMovieCard' function to make a map array. use .join('') to prevent , to appear since it's an array
+    movieCardSection.innerHTML = movies.map(createMovieCard).join('');
+
+    //select the 'movie-card' class which contains the 20 cards that were made by the code above and assign it to movieCards const
+    const movieCards = document.querySelectorAll('.movie-card');
+
+    //now all of the cards are selected, go through each of them and put onclick event
+    movieCards.forEach((movieCard) => {
+      movieCard.addEventListener('click', () => {
+        alert('Movie ID Number is ' + movieCard.id + '.');
+      });
     });
   });
 
-//create cards
+//make a function that creates a HTML string for a card
 export function createMovieCard(data) {
-  //fetch ID of HTML
-  let movieCardSection = document.querySelector('.movieCardsFlex');
-
-  //create div elements in HTML and assign class
-  let movieCard = document.createElement('div');
-  movieCard.classList.add('movie-card');
-
-  //put the div elements that movieCard creates into HTML
-  movieCard.innerHTML = `
+  return `
+      <div class="movie-card" id="${data.id}">
       <img src="https://image.tmdb.org/t/p/w200/${data.poster_path}" class="card-img" />
       <p id="cardtitle">${data.title}</p>
       <p class="rating">⭐️ <span class="rating-color">${data.vote_average}</span></p>
       <p class="overview">${data.overview}</p>
-      `;
-
-  //make the created movieCards subordinate to moiveCardSection
-  movieCardSection.appendChild(movieCard);
-
-  //use addEventListener for onclick action
-  movieCard.addEventListener('click', () => {
-    alert('Movie ID Number is ' + data.id + '.');
-  });
+      </div>`;
 }
